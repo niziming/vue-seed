@@ -21,6 +21,7 @@ Vue.prototype.$axios = axios
 const AUTH_TOKEN = sessionStorage.getItem('Authorization')
 axios.defaults.baseURL = '/api'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
 Vue.config.productionTip = false
 
 /* 注入 */
