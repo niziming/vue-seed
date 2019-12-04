@@ -28,8 +28,11 @@ export default {
   },
   computed: {
     count () {
-      return this.$store.state.count
+      return this.$store.state.module.count
     }
+  },
+  mounted () {
+    console.log(this.$store.state)
   }
 }
 </script>
