@@ -11,7 +11,7 @@ import { store } from './store/store'// 引入store
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
-import '../static/css/global.css'
+import './assets/css/global.css'
 import eleCalendar from 'ele-calendar'
 import less from 'less'
 // import { handleErrorMsg } from '@/common/common'
