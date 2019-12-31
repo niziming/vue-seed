@@ -1,12 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{msg}}</h1>
-    999
-    {{ count }}
-    <p>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
-    </p>
+    {{count}}
   </div>
 </template>
 
@@ -15,24 +9,18 @@ export default {
   name: 'index',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
-    increment () {
-      this.$store.commit('increment')
-    },
-    decrement () {
-      this.$store.commit('decrement')
-    }
   },
   computed: {
-    count () {
-      return this.$store.state.module.count
+    count: {
+      get () {
+        return this.$store.getters.Search.count
+      }
     }
   },
   mounted () {
-    console.log(this.$store.state)
   }
 }
 </script>
