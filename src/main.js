@@ -12,10 +12,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import './assets/css/global.css'
-import eleCalendar from 'ele-calendar'
-import axiosHandle from './assets/common/axiosHandle.js'
+import { codemirror } from 'vue-codemirror'
+// 这个是你设置了什么主题，就要对应的在main.js中引入主题的css
+import 'codemirror/lib/codemirror.css'
+// import eleCalendar from 'ele-calendar'
 import less from 'less'
-// import { handleErrorMsg } from '@/common/common'
+
 // import 'ele-calendar/dist/vue-calendar.css'
 Vue.prototype.$axios = axios
 
@@ -28,11 +30,8 @@ Vue.config.productionTip = false
 /* 注入 */
 Vue.use(Vuex)
 Vue.use(ElementUI)
-Vue.use(eleCalendar)
+Vue.use(codemirror)
 Vue.use(less)
-
-axiosHandle.requestHandle()
-axiosHandle.responseHandle()
 
 /* eslint-disable no-new */
 // 实例化 router store

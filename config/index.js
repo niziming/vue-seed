@@ -3,20 +3,16 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-const Api = {
-  server: '192.168.0.110:8089/server',
-  host: '127.0.0.1'
-}
 
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/seed/',
     proxyTable: {
       '/api': {
-        target: Api.server,
+        // target: Api.server,
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
@@ -25,7 +21,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: Api.host, // can be overwritten by process.env.HOST
+    host: '127.0.0.1', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
