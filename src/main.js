@@ -10,7 +10,7 @@ import Vuex from 'vuex'
 import { store } from './store/store'// 引入store
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import axios from 'axios'
+import axios from '@/assets/common/axios-config.js'
 import './assets/css/global.css'
 import { codemirror } from 'vue-codemirror'
 // 这个是你设置了什么主题，就要对应的在main.js中引入主题的css
@@ -21,10 +21,10 @@ import less from 'less'
 // import 'ele-calendar/dist/vue-calendar.css'
 Vue.prototype.$axios = axios
 
-const AUTH_TOKEN = sessionStorage.getItem('Authorization')
-axios.defaults.baseURL = '/api'
-axios.defaults.headers.post['Content-Type'] = 'application/json'
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
+// const AUTH_TOKEN = sessionStorage.getItem('Authorization')
+// axios.defaults.baseURL = '/api'
+// axios.defaults.headers.post['Content-Type'] = 'application/json'
+// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
 Vue.config.productionTip = false
 
 /* 注入 */

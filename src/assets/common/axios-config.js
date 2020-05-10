@@ -3,6 +3,7 @@ import Api from '../../../static/Api.js'
 import router from '@/router/index.js'
 import ElementUI from 'element-ui'
 import globalLoading from './globalLoading.js'
+import qs from 'qs'
 
 // 配置请求超时时间
 // axios.defaults.timeout = apiConfig.axios.timeout.value

@@ -11,6 +11,19 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/Test',
+      name: 'Test',
+      component: () => import('@/components/Test.vue')
+      // component: Test
     }
-  ]
+  ],
+  // 自定义路由切换时页面如何滚动
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
