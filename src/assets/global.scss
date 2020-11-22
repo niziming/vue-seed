@@ -1,0 +1,42 @@
+html,
+body,
+li,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height: calc(100vh);
+  width: calc(100vw);
+  background: url("../../static/assets/bg.jpg") 100% 100% no-repeat;
+}
+
+// 默认主题
+$default-theme : (
+  base-color: #ddd,
+  border-color: #000
+);
+//红色主题
+$red-theme : (
+  base-color: red,
+  border-color: red
+);
+//定义映射集合
+$themes: (
+  default-theme: $default-theme,
+  red-theme: $red-theme
+);
+
+@mixin base-background(){
+  @each $themename , $theme in $themes {
+    [data-theme = '#{$themename}'] & {
+      background: map-get($map: $theme, $key: base-color )
+    }
+  }
+}

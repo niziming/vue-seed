@@ -1,7 +1,7 @@
-const Api = {
+let host = '49.233.173.70'
+let port = '8084'
+window.global = {
   // 特征提取
-  tztq: 'http://49.233.173.70:8084/tztq',
-  tztqWS: 'ws://49.233.173.70:8084/tztq/textEndPoint'
+  tztq: `http://${host}:${port}/tztq`,
+  tztqWS: `ws://${host}:${port}/tztq/textEndPoint`
 }
-
-export default Api

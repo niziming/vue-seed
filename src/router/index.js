@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/components'
+const index = () => import('@/components/index.vue')
+const error = () => import('@/components/404.vue')
 
 Vue.use(Router)
 
-export default new Router({
+Router.prototype.goBack = () => {
+  merchantwallet.rountisBack = true
+  window.history.go(-1)
+}
+
+const router = new Router({
   mode: 'hash',
   routes: [
     {
@@ -13,17 +19,32 @@ export default new Router({
       component: index
     },
     {
-      path: '/Test',
-      name: 'Test',
-      component: () => import('@/components/Test.vue')
-      // component: Test
+      path: '*',
+      name: 'error',
+      meta: { msg: '404-页面不存在' },
+      component: error
     }
-  ],
-  // 自定义路由切换时页面如何滚动
-  scrollBehavior (to, from, savedPosition) {
-    return {
-      x: 0,
-      y: 0
+  ]
+})
+
+/**
+ *  路由拦截
+ *  所有需要鉴权的页面,如果存储登录态的cookie不存在就跳登录页
+ */
+router.beforeEach((to, from, next) => {
+  // 遍历 $route.matched 来检查路由记录中的 meta 字段
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (getCookie('session')) {
+      next() // 进行路由管道中的下一个钩子
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
     }
+  } else {
+    next()
   }
 })
+
+export default router

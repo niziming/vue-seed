@@ -6,18 +6,12 @@ import globalLoading from './globalLoading.js'
 import qs from 'qs'
 
 // 配置请求超时时间
-// axios.defaults.timeout = apiConfig.axios.timeout.value
+axios.defaults.timeout = 2000
 // 配置axios基本请求地址
-// axios.defaults.baseURL = apiConfig.axios.baseUrl.value
+axios.defaults.baseURL = window.global.tztq
 
 // 全局请求拦截处理
 axios.interceptors.request.use(config => {
-  console.log(config)
-  for (let key in Api) {
-    console.log(key, Api)
-  }
-  let suffix = config.url
-  config.url = Api.tztq + suffix
   if (config.headers.loading !== false) globalLoading.startLoading()
   return config
 }, (err) => {
@@ -41,6 +35,7 @@ axios.interceptors.response.use(
     }
   },
   (err) => {
+    globalLoading.endLoading()
     // const { config, code, message } = err
     console.log(`响应错误处理`)
     // if (code === 'ECONNABORTED') ElementUI.Message.warning(`请求超时,请稍后重试`)
