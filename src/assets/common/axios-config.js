@@ -6,7 +6,7 @@ import globalLoading from './globalLoading.js'
 import qs from 'qs'
 
 // 配置请求超时时间
-axios.defaults.timeout = 2000
+axios.defaults.timeout = config.axios.baseURL.timeout
 // 配置axios基本请求地址
 axios.defaults.baseURL = config.axios.baseURL.value
 

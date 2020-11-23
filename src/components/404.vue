@@ -31,10 +31,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .block {
-    width: 1000px;
-    @include base-background();
-  }
+  /*.block {*/
+  /*  width: 1000px;*/
+  /*  @include base-background();*/
+  /*}*/
     /*.error {*/
       /*width: 100vw;*/
       /*height: 100vh;*/
