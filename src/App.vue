@@ -1,5 +1,6 @@
 <template>
-  <div id="app" :data-theme='nowThemeInfo'>
+  <!--<div id="app" :data-theme='nowThemeInfo'>-->
+  <div id="app">
     <router-view/>
   </div>
 </template>
@@ -8,7 +9,7 @@
 export default {
   name: 'App',
   computed: {
-    ...this.$axios.getters.Themes.mapState(['nowThemeInfo'])
+    // ...this.$axios.getters.Themes.mapState(['nowThemeInfo'])
   }
 }
 </script>

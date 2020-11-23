@@ -2,7 +2,8 @@
   <div class="hello">
     <el-button @click="_test">test</el-button>
     <div>
-      <el-select v-model="value" :placeholder="themes[0]" @change="changeTheme" value="">
+      <!--<el-select v-model="value" :placeholder="themes[0]" @change="changeTheme" value="">-->
+      <el-select v-model="value" value="">
         <el-option
           v-for="item in themes"
           :key="item"
@@ -19,6 +20,7 @@ export default {
   name: 'index',
   data () {
     return {
+      value: '',
       themes: [
         'red-theme',
         '$default-theme'
@@ -26,12 +28,12 @@ export default {
     }
   },
   computed: {
-    ...this.$store.getters.Themes.mapState(['nowThemeInfo'])
+    // ...this.$store.getters.Themes.mapState(['nowThemeInfo'])
   },
   methods: {
-    changeTheme (value) {
-      this.SET_THEMEINFO(value)
-    },
+    // changeTheme (value) {
+    //   this.SET_THEMEINFO(value)
+    // },
     _test () {
       this.$axios.get('/test', {params: {hello: 'world'}}).then(res => {
         console.log(res)
