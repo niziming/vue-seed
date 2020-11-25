@@ -16,11 +16,15 @@ import './assets/global.scss'
 import { codemirror } from 'vue-codemirror'
 // 这个是你设置了什么主题，就要对应的在main.js中引入主题的css
 import 'codemirror/lib/codemirror.css'
+import config from '@/assets/common/sync-config'
+// import config from '../static/config/config.json'
+
 // import eleCalendar from 'ele-calendar'
 // import less from 'less'
 
 // import 'ele-calendar/dist/vue-calendar.css'
 Vue.prototype.$axios = axios
+Vue.prototype.$config = config
 
 // const AUTH_TOKEN = sessionStorage.getItem('Authorization')
 // axios.defaults.baseURL = '/api'

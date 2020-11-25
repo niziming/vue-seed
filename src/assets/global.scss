@@ -1,53 +1,8 @@
-html,
-body,
-li,
-ul,
-p,
-ol {
-  margin: 0;
-  padding: 0;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: calc(100vh);
-  width: calc(100vw);
-  background: url("../../static/assets/bg.jpg") 100% 100% no-repeat;
-}
+@import "./mixin.scss";
 
-// 默认主题
-// variable.scss
-
-// 浅色
-$colors-light: (
-  fill-1: #fff,
-  text: #3c3c3c,
-  text-1: #757575,
-  text-2: #222,
-);
-
-// 深色
-$colors-dark: (
-  fill-1: #222,
-  text: #fff,
-  text-1: rgba(255, 255, 255, 0.3),
-  text-2: #ffcd32,
-);
-// mixin.scss
-// 背景色
-@mixin bg-color($key) {
-  background-color: map-get($colors-light, $key);
-  [data-theme="dark"] & {
-    background-color: map-get($colors-dark, $key);
-  }
-}
-// text色
-@mixin text-color($key) {
-  color: map-get($colors-light, $key);
-  [data-theme="dark"] & {
-    color: map-get($colors-dark, $key);
+.app-container {
+  @include themify {
+    color: themed('text-color');
+    background-color: themed('bg-color');
   }
 }

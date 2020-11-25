@@ -20,7 +20,15 @@ let syncGetJsonData = function (url) {
   //   }
   // }
 }
+//
+// let getJson = function (url) {
+//   fetch(url).then(res => {
+//     console.log(res.json())
+//     return res.json()
+//   }).catch(err => err)
+// }
 
-config = syncGetJsonData('static/config.json?r=' + Math.random()) // 随机参数用于防止取缓存
+config = syncGetJsonData('static/config/config.json?r=' + Math.random()) // 随机参数用于防止取缓存
+// config = getJson('static/config/config.json?r=' + Math.random()) // 随机参数用于防止取缓存
 
 export default config
