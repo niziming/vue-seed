@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const index = () => import('@/components/index.vue')
 const error = () => import('@/components/404.vue')
+const GlobalTable = () => import('@/components/common/GlobalTable')
 
 Vue.use(Router)
 
@@ -16,7 +17,14 @@ const router = new Router({
     {
       path: '/',
       name: 'index',
-      component: index
+      component: index,
+      children: [
+        {
+          path: '/global-table',
+          name: 'GlobalTable',
+          component: GlobalTable
+        }
+      ]
     },
     {
       path: '*',

@@ -8,6 +8,7 @@
           <option value="dark">dark</option>
         </select>
       </label>
+      <router-view/>
       <el-button @click="changeTheme">
         click
       </el-button>
