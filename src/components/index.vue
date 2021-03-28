@@ -9,6 +9,7 @@
         </select>
       </label>
       <router-view/>
+      <CommonTable :tableColumn="tableColumn" />
       <el-button @click="changeTheme">
         click
       </el-button>
@@ -17,10 +18,18 @@
 </template>
 
 <script>
+import CommonTable from './common/CommonTable';
 export default {
   name: 'index',
+  components: {CommonTable},
   data () {
     return {
+      tableColumn: [
+        {
+          prop: 'asf',
+          label: '你好'
+        }
+      ],
       msg: 'Dynamic Themes',
       theme: 'light'
     }
